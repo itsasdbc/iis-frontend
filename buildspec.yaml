@@ -15,7 +15,7 @@ phases:
       - echo Preparing deployment package
       - mkdir -p deployment
       - cp -R dist/* deployment/
-      - cp appspec.yaml deployment/
+      - cp appspec.yml deployment/
 
   post_build:
     commands:

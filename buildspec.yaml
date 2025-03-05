@@ -12,12 +12,20 @@ phases:
     commands:
       - echo Building the application
       - npm run build
+      - echo Preparing deployment package
+      - mkdir -p deployment
+      - cp -R dist/* deployment/
+      - cp appspec.yaml deployment/
+
+  post_build:
+    commands:
+      - echo Creating deployment artifacts
+      - zip -r deployment.zip deployment
 
 artifacts:
   files:
-    - "**/*"
-  base-directory: dist
-  discard-paths: no
+    - deployment.zip
+  name: react-vite-deployment-$(date +%Y-%m-%d)
 
 cache:
   paths:

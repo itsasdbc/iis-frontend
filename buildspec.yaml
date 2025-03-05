@@ -17,14 +17,9 @@ phases:
       - cp -R dist/* deployment/
       - cp appspec.yml deployment/
 
-  post_build:
-    commands:
-      - echo Creating deployment artifacts
-      - zip -r deployment.zip deployment
-
 artifacts:
   files:
-    - deployment.zip
+    - "deployment/**/*"
   name: react-vite-deployment-$(date +%Y-%m-%d)
 
 cache:

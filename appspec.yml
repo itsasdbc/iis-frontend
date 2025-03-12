@@ -3,3 +3,4 @@ os: windows
 files:
   - source: /
     destination: D:\webapp\app-orangdong\
+overwrite: true
